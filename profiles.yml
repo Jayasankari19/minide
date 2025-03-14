@@ -3,7 +3,7 @@ Eventbooking:
     dev:
       account: YGOEDRR-COB85086
       database: DEMINI_EVENTBOOKING
-      password: Jayasankari@19
+      password: ""
       role: ACCOUNTADMIN
       schema: STAGING_EVENTBOOKING
       threads: 1
@@ -18,7 +18,7 @@ snowflake:
     dev:
       account: LAB33308
       database: SAME_DBT
-      password: Jayasankari@19
+      password: ""
       role: SYSADMIN
       schema: BASE
       threads: 1
