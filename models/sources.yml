@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: eventbooking
+    database: DEMINI_EVENTBOOKING
+    schema: STAGING_EVENTBOOKING
+    tables:
+      - name: country
+        tests:
+          - unique:
+              column_name: customer_id
+          - not_null:
+              column_name: country 
+
+      - name: customers
+        tests:
+          - unique:
+              column_name: customer_id  
+          - not_null:
+              column_name: customer_id  
+          - not_null:
+              column_name: customername 
+
+
+      - name: products
+        tests:
+          - unique:
+              column_name: product_id  
+          - not_null:
+              column_name: product_family 
+
+      - name: transactions
+        tests:
+          - negative_revenue: {}
+          - not_null:
+              column_name: customer_id
+          - not_null:
+              column_name: product_id  
+          
+

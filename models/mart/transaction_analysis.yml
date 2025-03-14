@@ -1,0 +1,131 @@
+version: 2
+
+models:
+  - name: mart_transactions
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+
+      - name: company
+
+      - name: country
+
+      - name: product_id
+        tests:
+          - not_null
+
+      - name: product_family
+
+      - name: product_sub_family
+
+      - name: payment_month
+
+      - name: revenue
+
+      - name: quantity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: 2
+
+models:
+  - name: fact_crb
+    description: "Fact table for customer revenue bridge KPIs."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - not_null
+      - name: payment_month
+        description: "Month of transaction."
+      - name: revenue
+        description: "Total revenue for the customer-product combination."
+      - name: previous_revenue
+        description: "Revenue from the previous period for the customer."
+      - name: revenue_category
+        description: "Revenue classification (Churned, New, Expansion, Contraction, Stable)."
+
+  - name: kpi_churn_new_customers
+    description: "KPI for tracking churned and new customers over time."
+    columns:
+      - name: customer_id
+        description: "Customer ID of churned or new customers."
+      - name: revenue_category
+        description: "Indicates whether the customer is Churned or New."
+      - name: period
+        description: "Time period for KPI calculation."
+
+  - name: kpi_cross_sell_product_churn
+    description: "KPI for identifying customers with highest cross-sell and product churn."
+    columns:
+      - name: customer_id
+        description: "Customer ID associated with cross-sell or churn."
+      - name: product_id
+        description: "Product ID involved in cross-sell or churn."
+      - name: revenue_change
+        description: "Revenue increase (cross-sell) or decrease (churn)."
+
+  - name: kpi_nrr_grr
+    description: "KPI for calculating Net Revenue Retention (NRR) and Gross Revenue Retention (GRR)."
+    columns:
+      - name: period
+        description: "Time period for revenue retention calculation."
+      - name: nrr
+        description: "Net Revenue Retention."
+      - name: grr
+        description: "Gross Revenue Retention."
+
+  - name: kpi_revenue_lost
+    description: "KPI for measuring revenue lost due to contraction over time."
+    columns:
+      - name: period
+        description: "Time period for revenue loss calculation."
+      - name: lost_revenue
+        description: "Total revenue lost due to contraction."
+
+  - name: kpi_new_logos
+    description: "KPI for identifying new logos (new customers) in each fiscal year."
+    columns:
+      - name: fiscal_year
+        description: "Fiscal year for new logo identification."
+      - name: new_customers
+        description: "Count of new customers acquired in the fiscal year."
+
+  - name: kpi_rank_products
+    description: "KPI for ranking products based on revenue."
+    columns:
+      - name: product_id
+        description: "Product ID being ranked."
+      - name: total_revenue
+        description: "Total revenue for the product."
+      - name: revenue_rank
+        description: "Ranking of products based on revenue."
+
+  - name: kpi_rank_customers
+    description: "KPI for ranking customers based on revenue."
+    columns:
+      - name: customer_id
+        description: "Customer ID being ranked."
+      - name: total_revenue
+        description: "Total revenue for the customer."
+      - name: revenue_rank
+        description: "Ranking of customers based on revenue."
