@@ -1,0 +1,28 @@
+Eventbooking:
+  outputs:
+    dev:
+      account: YGOEDRR-COB85086
+      database: DEMINI_EVENTBOOKING
+      password: Jayasankari@19
+      role: ACCOUNTADMIN
+      schema: STAGING_EVENTBOOKING
+      threads: 1
+      type: snowflake
+      user: JAYASANKARI
+      warehouse: COMPUTE_WH
+  target: dev
+
+  
+snowflake:
+  outputs:
+    dev:
+      account: LAB33308
+      database: SAME_DBT
+      password: Jayasankari@19
+      role: SYSADMIN
+      schema: BASE
+      threads: 1
+      type: snowflake
+      user: JAYASANKARI
+      warehouse: SAMPLE_SYS_WH
+  target: dev
